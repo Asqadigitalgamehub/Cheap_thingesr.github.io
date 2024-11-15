@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Purchase Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            font-family: 'Arial', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: bold;
+            padding: 20px 50px;
+            background: linear-gradient(135deg, #00ffcc, #009688);
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 300%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: skewX(-45deg);
+            transition: all 0.3s;
+            z-index: 0;
+        }
+
+        a:hover {
+            background: linear-gradient(135deg, #009688, #00ffcc);
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        a:hover::before {
+            left: 100%;
+        }
+
+        a span {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            background: linear-gradient(135deg, #ffffff, #cccccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
+        }
+
+        a:hover span {
+            animation: pop 0.3s ease-out forwards;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScKsdSJY0GCnPPFb6G_ZvURzCt3AqZe_qpINscjCZVUOHfgcQ/viewform?embedded=true" width="640" height="959" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <script>
+        var load = 0;
+        
+        document.getElementById('gform').onload = function(){
+            /*Execute on every reload on iFrame*/
+            load++;
+            if(load > 1){
+                /*Second reload is a submit*/
+                document.location = "qrcode.html";
+            }
+        }
+        </script>
+        
+</body>
+</html>
